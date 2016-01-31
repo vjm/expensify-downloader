@@ -1,0 +1,5 @@
+receipts/*
+!receipts/.gitkeep
+receipts.json
+
+node_modules
