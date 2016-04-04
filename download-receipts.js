@@ -8,7 +8,17 @@ casper.start().each(receipts, function(self, receipt) {
         // this.echo(this.getTitle());
         var actualreceipturl = this.getElementAttribute("#receipt .button a", "href");
         var linkextension = "." + utils.fileExt(actualreceipturl);
-        var downloadLocation = "receipts/" + receipt.receiptname.trim() + linkextension;
+
+        // var newThis = this;
+
+        var fs = require('fs');
+		var dir = './receipts/'+receipt.receiptfolder;
+
+		if(!fs.isDirectory(dir)){
+			fs.makeDirectory(dir);
+	    }
+
+        var downloadLocation = "receipts/" + receipt.receiptfolder + "/" + receipt.receiptname.trim() + linkextension;
         // this.echo(actualreceipturl + " to " + downloadLocation);
         this.download(actualreceipturl, downloadLocation);
     });

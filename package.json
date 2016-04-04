@@ -13,5 +13,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-  }
+  },
+  "description": "Download Receipts",
+  "license": "MIT"
 }
